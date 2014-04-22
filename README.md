@@ -50,3 +50,7 @@ Repo: [https://github.com/archipoeta/eso-macropoetry](https://github.com/archipo
 ###Issues:
 I will support this add-on, and address bugs here:
 [https://github.com/archipoeta/eso-macropoetry/issues](https://github.com/archipoeta/eso-macropoetry/issues)
+
+###Planned Features:
+* internal command to other addons' methods mapping
+* easy color name parsing inside macros, (i.e. {blue})
