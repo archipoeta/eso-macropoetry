@@ -4,12 +4,13 @@ The Quintessential Macro Add-on for ESO (The Elder Scrolls Online.)
 ###About:
 This Add-on is very powerful.
 It aims to bring the full macro experience to ESO, reminiscient of the macro systems from SWG, FFXI, EQ/2 and even WOW to a certain degree.
+That means a macro editor which allows for multi-line multi-command editing, macro actionbar, and the ability to assign icons to the macro slots.
+
+Designed to be intuitive and fully featured, I will make whatever improvements can be made (API,) or might be made (features+) to this in the future.
 
 Since it is possible to create long sequences with very long delays between commands, and is also possible to execute those in multiplicate:
 this add-on has a Dump button to empty the command queue.
 (*You can crash your game by firing off too many overlapping macros if you're not careful.*)
-
-Designed to be intuitive and fully featured, I will make whatever improvements can be made (API,) or might be made (features+) to this in the future.
 
 As I'm sure you're aware: ESO Add-Ons are not permitted to post directly to chat channels for security reasons.
 
