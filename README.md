@@ -1,7 +1,7 @@
 #MacroPoetry
 The Quintessential Macro Add-on for ESO (The Elder Scrolls Online.)
 
-###Usage:
+###About:
 This Add-on is very powerful.
 It aims to bring the full macro experience to ESO, reminiscient of the macro systems from SWG, FFXI, EQ/2 and even WOW to a certain degree.
 
@@ -52,5 +52,6 @@ I will support this add-on, and address bugs here:
 [https://github.com/archipoeta/eso-macropoetry/issues](https://github.com/archipoeta/eso-macropoetry/issues)
 
 ###Planned Features:
-* internal command to other addons' methods mapping
+* per macro, unique slot hover and text color
 * easy color name parsing inside macros, (i.e. {blue})
+* internal command to other addons' methods mapping, (i.e. /iv -> WF_ImageViewerWindow())
