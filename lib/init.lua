@@ -43,7 +43,6 @@ function M.on_init( event, name )
 	M.add_slash_commands()
 	M.create_settings_ui()
 	M.load_saved_vars()
-	M.place_macros()
 
 	-- Event / Command Queue Processor
 	MacroPoetry:SetHandler("OnUpdate", function(self, timerun)
@@ -70,7 +69,6 @@ function M.buffer_reached(key, buffer)
     if BufferTable[key] == nil then BufferTable[key] = {} end
     BufferTable[key].buffer = tonumber(buffer) or 3
     BufferTable[key].now = GetFrameTimeSeconds()
-	--BufferTable[key].now = GetGameTimeMilliseconds() / 1000
     if BufferTable[key].last == nil then BufferTable[key].last = BufferTable[key].now end
     BufferTable[key].diff = BufferTable[key].now - BufferTable[key].last
     BufferTable[key].eval = BufferTable[key].diff >= BufferTable[key].buffer
@@ -90,9 +88,9 @@ end
 
 function M.load_saved_vars()
 	M.saved = ZO_SavedVars:NewAccountWide( "MacroPoetry_SavedVariables", M.version, "saved", M.saved )
-	M.toggle_addon_visible( M.saved.addon_visible )
 	local x = M.saved.display_position.x
 	local y = M.saved.display_position.y
+	M.toggle_addon_visible( M.saved.addon_visible )
 	MacroPoetry:ClearAnchors()
 	MacroPoetry:SetAnchor( CENTER, GuiRoot, TOPLEFT, x, y )
 	M.set_addon_orientation()
@@ -127,4 +125,16 @@ end
 function M.get_textcolor_setting() return unpack( M.saved.text_color ) end
 function M.set_textcolor_setting( r, g, b, a )
 	M.saved.text_color = { r, g, b, a }
+end
+
+function M.auto_hide( layer, active )
+	if ( active == 2 or active == 11 or active == 12 or active == 16 ) then
+		M.toggle_addon_visible(false)
+	end
+end
+
+function M.auto_unhide( layer, active )
+	if ( active == 2 or active == 11 or active == 12 or active == 16) then
+		M.toggle_addon_visible(true)
+	end
 end

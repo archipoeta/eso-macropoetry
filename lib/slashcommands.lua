@@ -5,8 +5,10 @@ function M.add_slash_commands()
 	SLASH_COMMANDS["/macro"] = function()
 		if ( MacroPoetry.hidden ) then
 			M.toggle_addon_visible(true)
+			M.saved.addon_visible = true
 		else
 			M.toggle_addon_visible(false)
+			M.saved.addon_visible = false
 		end
 	end
 

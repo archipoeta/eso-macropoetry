@@ -126,10 +126,8 @@ function M.toggle_addon_visible(toggle)
 	if ( toggle == true ) then
 		MacroPoetry:SetHidden(false)
 		MacroPoetry.hidden = false
-		M.saved.addon_visible = true
 	elseif ( toggle == false ) then
 		MacroPoetry:SetHidden(true)
 		MacroPoetry.hidden = true
-		M.saved.addon_visible = false
 	end
 end

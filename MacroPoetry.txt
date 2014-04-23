@@ -14,7 +14,7 @@ lib/init.lua
 lib/utils.lua
 lib/actions.lua
 lib/slashcommands.lua
-lib/final.lua
+lib/events.lua
 
 lib/bindings.lua
 xml/bindings.xml

@@ -21,6 +21,7 @@
 					</OnMouseExit>
 					<OnMouseDown>
 						M.toggle_addon_visible(false)
+						M.saved.addon_visible = false
 					</OnMouseDown>
 				</Texture>
 				<Texture name="MP_Orientation" textureFile="/esoui/art/ava/ava_resourcestatus_tabicon_production.dds" verticalAlignment="TOP" mouseEnabled="true">
