@@ -1,0 +1,48 @@
+<Bindings>
+  <Layer name="General">
+    <Category name="Macro Window">
+      <Action name="TOGGLE_MACRO_WINDOW">
+        <Down>M.toggle_addon_visible()</Down>
+      </Action>
+      <Action name="DUMP_MACRO_QUEUE">
+        <Down>M.dump_command_queue()</Down>
+      </Action>
+      <Action name="MACRO_SLOT_1">
+        <Down>M.perform_macro( 1, M.saved.macros[1]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_2">
+        <Down>M.perform_macro( 2, M.saved.macros[2]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_3">
+        <Down>M.perform_macro( 3, M.saved.macros[3]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_4">
+        <Down>M.perform_macro( 4, M.saved.macros[4]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_5">
+        <Down>M.perform_macro( 5, M.saved.macros[5]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_6">
+        <Down>M.perform_macro( 6, M.saved.macros[6]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_7">
+        <Down>M.perform_macro( 7, M.saved.macros[7]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_8">
+        <Down>M.perform_macro( 8, M.saved.macros[8]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_9">
+        <Down>M.perform_macro( 9, M.saved.macros[9]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_10">
+        <Down>M.perform_macro( 10, M.saved.macros[10]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_11">
+        <Down>M.perform_macro( 11, M.saved.macros[11]["body"] )</Down>
+      </Action>
+      <Action name="MACRO_SLOT_12">
+        <Down>M.perform_macro( 12, M.saved.macros[12]["body"] )</Down>
+      </Action>
+    </Category>
+  </Layer>
+</Bindings>

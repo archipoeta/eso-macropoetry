@@ -1,0 +1,21 @@
+## Title: |c77DAFFMacro|cFF77DAPoetry|r
+## Author: Archpoet
+## Version: 1.0.0
+## APIVersion: 100003
+
+## SavedVariables: MacroPoetry_SavedVariables
+
+lib/LibStub.lua
+lib/LibAddonMenu-1.0.lua
+lib/GameImages.lua
+
+lib/MacroPoetry.lua
+lib/init.lua
+lib/utils.lua
+lib/actions.lua
+lib/slashcommands.lua
+lib/final.lua
+
+lib/bindings.lua
+xml/bindings.xml
+xml/MacroPoetry.xml

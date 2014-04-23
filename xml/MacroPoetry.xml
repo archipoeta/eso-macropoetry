@@ -1,0 +1,189 @@
+<GuiXml>
+	<Controls>
+		<TopLevelControl name="MacroPoetry" mouseEnabled="true" movable="true">
+			<Dimensions x="50" y="600" />
+			<Anchor point="TOPRIGHT" />
+			<OnMoveStop>
+				M.stopped()
+			</OnMoveStop> 
+			<Controls>
+				<Backdrop name="MP_Background" inherits="ZO_DefaultBackdrop" />
+				<Texture name="MP_Close" textureFile="/esoui/art/buttons/cancel_up.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="25" y="25" />
+					<OnMouseEnter>
+						MP_Close:SetColor( 1, 0, 0, 1 )
+						M.show_tooltip("Close")
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_Close:SetColor( 207/255, 220/255, 189/255, 1 )
+						M.hide_tooltip()
+					</OnMouseExit>
+					<OnMouseDown>
+						M.toggle_addon_visible(false)
+					</OnMouseDown>
+				</Texture>
+				<Texture name="MP_Orientation" textureFile="/esoui/art/ava/ava_resourcestatus_tabicon_production.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="25" y="25" />
+					<OnMouseEnter>
+						MP_Orientation:SetColor( 0, 0.65, 1, 1 )
+						M.show_tooltip("Toggle Orientation")
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_Orientation:SetColor( 207/255, 220/255, 189/255, 1 )
+						M.hide_tooltip()
+					</OnMouseExit>
+					<OnMouseDown>
+						M.toggle_addon_orientation()
+					</OnMouseDown>
+				</Texture>
+				<Texture name="MP_About" textureFile="/esoui/art/buttons/info_up.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="25" y="25" />
+					<OnMouseEnter>
+						MP_About:SetColor( 0, 0.65, 1, 1 )
+						M.show_tooltip("|c77DAFFMacro|r|cFF77DAPoetry|r by @archpoet.")
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_About:SetColor( 207/255, 220/255, 189/255, 1 )
+						M.hide_tooltip()
+					</OnMouseExit>
+				</Texture>
+				<Texture name="MP_DumpQueue" textureFile="/esoui/art/buttons/edit_cancel_up.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="25" y="25" />
+					<OnMouseEnter>
+						MP_DumpQueue:SetColor( 1, 0.65, 0, 1 )
+						M.show_tooltip("Dump the macro event queue.")
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_DumpQueue:SetColor( 207/255, 220/255, 189/255, 1 )
+						M.hide_tooltip()
+					</OnMouseExit>
+					<OnMouseDown>
+						M.dump_command_queue()
+					</OnMouseDown>
+				</Texture>
+				<Texture name="MP_PaneFwd" textureFile="/esoui/art/buttons/pointsplus_up.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="15" y="15" />
+					<OnMouseEnter>
+						MP_PaneFwd:SetColor( 0, 0.65, 1, 1 )
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_PaneFwd:SetColor( 207/255, 220/255, 189/255, 1 )
+					</OnMouseExit>
+				</Texture>
+				<Label name="MP_PaneLabel" text="" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" tier="1" mouseEnabled="false">
+					<Dimensions x="0" y="0" />
+				</Label>
+				<Texture name="MP_PaneBk" textureFile="/esoui/art/buttons/pointsminus_up.dds" verticalAlignment="TOP" mouseEnabled="true">
+					<Anchor offsetX="0" offsetY="0" />
+					<Dimensions x="15" y="15" />
+					<OnMouseEnter>
+						MP_PaneBk:SetColor( 0, 0.65, 1, 1 )
+					</OnMouseEnter>
+					<OnMouseExit>
+						MP_PaneBk:SetColor( 207/255, 220/255, 189/255, 1 )
+					</OnMouseExit>
+				</Texture>
+
+				<Label name="Tooltip" text="" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" hidden="true" tier="1">
+					<Dimensions x="0" y="0" />
+					<Controls>
+						<Backdrop name="Tooltip_Background" inherits="ZO_DefaultBackdrop" />
+					</Controls>
+				</Label>
+
+				<Label name="MacroEditor" tier="1" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="true" movable="true" hidden="true">
+					<Dimensions x="500" y="350" />
+					<Anchor point="CENTER" />
+					<Controls>
+						<Backdrop name="MPE_Background" inherits="ZO_DefaultBackdrop" />
+						<Label name="Title" text="|c66CCFFMacro|r|cFF66CCPoetry|r" verticalAlignment="TOP" font="ZoFontWindowTitle" color="CFDCBD" mouseEnabled="true">
+							<Anchor offsetX="5" offsetY="0" />
+						</Label>
+						<Label name="MacroNameLabel" text="Name:" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="false" hidden="false">
+							<Anchor offsetX="5" offsetY="50" />
+						</Label>
+
+						<EditBox name="MacroName" inherits="ZO_DefaultEditForBackdrop" font="ZoFontGame" color="CFDCBD" wrapMode="ELLIPSIS" editEnabled="true" multiLine="false" hidden="false">
+							<Dimensions x="350" y="20" />
+							<Anchor offsetX="70" offsetY="55" />
+							<Controls>
+								<Backdrop name="MacroName_Background" inherits="ZO_DefaultBackdrop" />
+							</Controls>
+						</EditBox>
+
+						<Texture name="MacroIcon" textureFile="/esoui/art/guild/tabicon_roster_up.dds" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="false" hidden="false">
+							<Dimensions x="64" y="64" />
+							<Anchor offsetX="435" offsetY="10" />
+						</Texture>
+
+						<Texture name="MacroIconFwd" textureFile="/esoui/art/charactercreate/charactercreate_rightarrow_up.dds" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="true" hidden="false">
+							<Dimensions x="15" y="15" />
+							<Anchor offsetX="475" offsetY="70" />
+						</Texture>
+
+						<Texture name="MacroIconBk" textureFile="/esoui/art/charactercreate/charactercreate_leftarrow_up.dds" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="true" hidden="false">
+							<Dimensions x="15" y="15" />
+							<Anchor offsetX="445" offsetY="70" />
+						</Texture>
+
+						<Label name="MacroBodyLabel" text="Body:" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="false" hidden="false">
+							<Anchor offsetX="5" offsetY="90" />
+						</Label>
+						<EditBox name="MacroBody" inherits="ZO_DefaultEditForBackdrop" font="ZoFontGame" color="CFDCBD" wrapMode="ELLIPSIS" editEnabled="true" multiLine="true" newLineEnabled="true" hidden="false">
+							<Dimensions x="350" y="200" />
+							<Anchor offsetX="70" offsetY="95" />
+							<Controls>
+								<Backdrop name="MacroBody_Background" inherits="ZO_DefaultBackdrop" />
+							</Controls>
+						</EditBox>
+
+						<Texture name="MacroDelete" textureFile="/esoui/art/buttons/cancel_up.dds" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="true" hidden="true">
+							<Dimensions x="32" y="32" />
+							<Anchor offsetX="420" offsetY="321" />
+							<OnMouseEnter>
+								MacroDelete:SetColor( 1, 0, 0, 1 )
+								M.show_tooltip("Delete!", MacroEditor)
+							</OnMouseEnter>
+							<OnMouseExit>
+								MacroDelete:SetColor( 207/255, 220/255, 189/255, 1 )
+								M.hide_tooltip()
+							</OnMouseExit>
+						</Texture>
+						<Texture name="MacroBodyOk" textureFile="/esoui/art/buttons/accept_up.dds" verticalAlignment="BOTTOM" horizontalAlignment="RIGHT" text="OK" mouseEnabled="true" hidden="false">
+							<Dimensions x="32" y="32" />
+							<Anchor offsetX="305" offsetY="321" />
+							<OnMouseEnter>
+								MacroBodyOk:SetColor( 0, 1, 0, 1 )
+								M.show_tooltip("Save", MacroEditor)
+							</OnMouseEnter>
+							<OnMouseExit>
+								MacroBodyOk:SetColor( 207/255, 220/255, 189/255, 1 )
+								M.hide_tooltip()
+							</OnMouseExit>
+						</Texture>
+
+						<Texture name="MacroBodyCancel" textureFile="/esoui/art/buttons/decline_up.dds" verticalAlignment="BOTTOM" horizontalAlignment="RIGHT" mouseEnabled="true" hidden="false">
+							<Dimensions x="32" y="32" />
+							<Anchor offsetX="365" offsetY="321" />
+							<OnMouseEnter>
+								MacroBodyCancel:SetColor( 1, 0.45, 0, 1 )
+								M.show_tooltip("Cancel", MacroEditor)
+							</OnMouseEnter>
+							<OnMouseExit>
+								MacroBodyCancel:SetColor( 207/255, 220/255, 189/255, 1 )
+								M.hide_tooltip()
+							</OnMouseExit>
+						</Texture>
+
+					</Controls>
+				</Label>
+
+			</Controls>
+		</TopLevelControl>
+	</Controls>
+</GuiXml>
