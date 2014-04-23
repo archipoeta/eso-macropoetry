@@ -3,9 +3,6 @@
 		<TopLevelControl name="MacroPoetry" mouseEnabled="true" movable="true">
 			<Dimensions x="50" y="600" />
 			<Anchor point="TOPRIGHT" />
-			<OnMoveStop>
-				M.stopped()
-			</OnMoveStop> 
 			<Controls>
 				<Backdrop name="MP_Background" inherits="ZO_DefaultBackdrop" />
 				<Texture name="MP_Close" textureFile="/esoui/art/buttons/cancel_up.dds" verticalAlignment="TOP" mouseEnabled="true">

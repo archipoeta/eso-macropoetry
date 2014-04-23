@@ -73,13 +73,6 @@ function M.show_tooltip(text, anchor)
 	MP_Tooltip:SetText(text)
 end
 
-function M.stopped()
-	local x, y = MacroPoetry:GetCenter()
-	M.saved.display_position.x = x
-	M.saved.display_position.y = y
-	M.get_addon_orientation()
-end
-
 function M.get_addon_orientation()
 	local l, t, r, b = MacroPoetry:GetScreenRect()
 	if ( r - l > 150 or b - t < 300 ) then

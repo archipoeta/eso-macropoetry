@@ -61,6 +61,14 @@ function M.on_init( event, name )
 		end
 	end)
 
+	-- Track / Save Movements
+	MacroPoetry:SetHandler( "OnMoveStop", function()
+		local x, y = MacroPoetry:GetCenter()
+		M.saved.display_position.x = x
+		M.saved.display_position.y = y
+		M.get_addon_orientation()
+	end)
+
 end
 
 local BufferTable = {}
