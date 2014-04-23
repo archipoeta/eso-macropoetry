@@ -124,8 +124,14 @@ function M.perform_macro( num, lines )
 	elseif ( M.get_table_length(lines) == 0 ) then
 		M.add_edit_macro(num)
 	else
+		local n = M.get_table_length( M.saved.command_queue ) + 1
+		if ( M.saved.command_queue[n] == nil ) then
+			M.saved.command_queue[n] = {
+				[num] = {}
+			}
+		end
 		for i,c in ipairs(lines) do
-			table.insert( M.saved.command_queue, c )
+			table.insert( M.saved.command_queue[n][num], c )
 		end
 	end
 end
@@ -180,6 +186,7 @@ function M.place_macros( pane, spacer )
 		if not ( wm:GetControlByName( elem ) ) then
 			control = wm:CreateControl( elem, MacroPoetry, CT_BACKDROP )
 			control:SetParent(MacroPoetry)
+			control:SetInheritScale(true)
 			control:SetDimensionConstraints(50,50,50,50)
 			control:SetResizeToFitDescendents(true)
 			control:SetMouseEnabled(true)
@@ -204,6 +211,7 @@ function M.place_macros( pane, spacer )
 			end)
 
 			label = wm:CreateControl( "label_" .. elem, control, CT_LABEL )
+			label:SetInheritScale(true)
 			label:SetDimensionConstraints(40,25,40,25)
 			label:SetAnchor(CENTER, control, CENTER, 0, 0)
 			label:SetFont("ZoFontGame")

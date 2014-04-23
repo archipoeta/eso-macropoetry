@@ -47,17 +47,37 @@ function M.on_init( event, name )
 	-- Event / Command Queue Processor
 	MacroPoetry:SetHandler("OnUpdate", function(self, timerun)
 		if ( M.get_table_length( M.saved.command_queue ) > 0 ) then
-			local first = M.saved.command_queue[1]
-			local cmd, args = first:match( "(%S+)%s*(.*)" )
-			if ( cmd == "/pause" or cmd == "/wait" ) then
-				if M.buffer_reached( 'sleep', tonumber(args) ) then
-					table.remove( M.saved.command_queue, 1 )
-				else
-					return
+			local i = 0
+			for num,commands in pairs( M.saved.command_queue[1] ) do
+
+				if ( M.saved.command_queue[1][num][1] ~= nil ) then
+					i = i + 1
+
+					local first = M.saved.command_queue[1][num][1]
+					local cmd, args = first:match( "(%S+)%s*(.*)" )
+
+					if ( cmd == "/pause" or cmd == "/wait" ) then
+
+						if M.buffer_reached( 'sleep' .. num .. i, tonumber(args) ) then
+							table.remove( M.saved.command_queue[1][num], 1 )
+						else
+							-- go on to the next macro, since this one is paused.
+							table.remove( M.saved.command_queue, 1 )
+							table.insert( M.saved.command_queue, { [num] = commands } )
+							return
+						end
+
+					end
+
+					M.execute_macro( { M.saved.command_queue[1][num][1] } )
+					table.remove( M.saved.command_queue[1][num], 1 )
+
+					if ( i >= #commands ) then
+						--macro has finished
+						table.remove( M.saved.command_queue, 1 )
+					end
 				end
 			end
-			M.execute_macro( { M.saved.command_queue[1] } )
-			table.remove( M.saved.command_queue, 1 )
 		end
 	end)
 
@@ -68,6 +88,8 @@ function M.on_init( event, name )
 		M.saved.display_position.y = y
 		M.get_addon_orientation()
 	end)
+
+	MacroPoetry:SetInheritScale(true)
 
 end
 
