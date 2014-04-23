@@ -47,13 +47,13 @@ function M.round(num, idp)
 end
 
 function M.hide_tooltip()
-	Tooltip:SetHidden(true)
-	Tooltip:SetText("")
+	MP_Tooltip:SetHidden(true)
+	MP_Tooltip:SetText("")
 end
 
 function M.show_tooltip(text, anchor)
 	if ( anchor == nil ) then anchor = MacroPoetry end
-	Tooltip:SetHidden(false)
+	MP_Tooltip:SetHidden(false)
 	local l, t, r, b = anchor:GetScreenRect()
 	local x, y = 0, 0
 	
@@ -69,8 +69,8 @@ function M.show_tooltip(text, anchor)
 		x = -150
 	end
 	
-	Tooltip:SetAnchor( CENTER, anchor, CENTER, x, y )
-	Tooltip:SetText(text)
+	MP_Tooltip:SetAnchor( CENTER, anchor, CENTER, x, y )
+	MP_Tooltip:SetText(text)
 end
 
 function M.stopped()
