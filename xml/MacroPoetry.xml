@@ -89,7 +89,7 @@
 					</OnMouseExit>
 				</Texture>
 
-				<Label name="Tooltip" text="" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" hidden="true" tier="1">
+				<Label name="MP_Tooltip" text="" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" hidden="true" tier="1">
 					<Dimensions x="0" y="0" />
 					<Controls>
 						<Backdrop name="Tooltip_Background" inherits="ZO_DefaultBackdrop" />
@@ -101,7 +101,7 @@
 					<Anchor point="CENTER" />
 					<Controls>
 						<Backdrop name="MPE_Background" inherits="ZO_DefaultBackdrop" />
-						<Label name="Title" text="|c66CCFFMacro|r|cFF66CCPoetry|r" verticalAlignment="TOP" font="ZoFontWindowTitle" color="CFDCBD" mouseEnabled="true">
+						<Label name="MPE_Title" text="|c66CCFFMacro|r|cFF66CCPoetry|r" verticalAlignment="TOP" font="ZoFontWindowTitle" color="CFDCBD" mouseEnabled="true">
 							<Anchor offsetX="5" offsetY="0" />
 						</Label>
 						<Label name="MacroNameLabel" text="Name:" verticalAlignment="TOP" font="ZoFontGame" color="CFDCBD" mouseEnabled="false" hidden="false">
