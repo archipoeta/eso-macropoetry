@@ -19,7 +19,7 @@ For chats and standard game-related slash commands, instead, this add-on populat
 press "Enter,Enter" (enter twice) to send the appropriate message to the appropriate channel.
 Beyond that, you do not need to activate or otherwise concern yourself with the chat input in regard to this add-on.
 
-### Main Addon Commands:
+###Main Addon Commands:
 *Chat Commands*
 
     /macro
@@ -28,10 +28,35 @@ Beyond that, you do not need to activate or otherwise concern yourself with the 
     /emotes
         List of all in-game performable emotes.
 
+	/dump
+		Empty the pending command queue.
+
     /echo [anything]
         Echo something to the console. This can be helpful during boss fights for timing.
 
-### Inside Macro Commands
+	/mail [to] [subject] [body]
+		Send an in-game mail to another player.
+
+	/money
+		Display your gold on-hand and in the bank.
+
+	/playtime
+		Display the total time played.
+
+	/repair
+		Attempt to repair all equipment.
+		This only works if you have a kit, or are in the merchant interface.
+
+	/repaircost
+		Display how much the total repairs are going to cost.
+
+	/whereami
+		Display the current Region/Area.
+
+	/whoami
+		Who are you really?
+
+###Inside Macro Commands
 *These are builtin commands, and will only work inside of macros.*
 
     /pause [seconds]
@@ -40,7 +65,7 @@ Beyond that, you do not need to activate or otherwise concern yourself with the 
     /wait [seconds]
         **See /pause**
 
-### Development:
+###Development:
 - For the development version: be sure to rename the cloned/extracted directory to "MacroPoetry," (i.e. *-master to MacroPoetry.)
 - Copy into ESO AddOns folder.
 
