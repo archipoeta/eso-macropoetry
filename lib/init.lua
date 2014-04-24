@@ -5,7 +5,8 @@ function M.init()
 	M.saved = {
 		["addon_visible"] = true,
 		["addon_orientation"] = 'v',
-		["account_name"] = GetDisplayName(),
+		["open_menu_alpha"] = 0.25,
+		--["account_name"] = GetDisplayName(),
 
 		["default_color"] = { 207, 220, 189 },	--ElderScrolls Default-Text (Cream/Tan)
 		["text_color"] = { 0.90, 0.90, 0.90, 1 }, -- Macro Text Color
@@ -134,7 +135,13 @@ function M.create_settings_ui()
 	LAM:AddHeader(M.saved.SettingsWindow, "MacroPoetry_UIOptions", "Options")
 	LAM:AddEditBox(M.saved.SettingsWindow, "MacroPoetry_MaxMacros",  "|cFF9999* Max Number of Macros|r", "Change to anything you want, but remeber it all costs system resources.", false, M.get_maxmacros_setting, M.set_maxmacros_setting, false, "")
 	LAM:AddColorPicker(M.saved.SettingsWindow, "MacroPoetry_ChatColor", "Macro Text Color", "This changes the color of the macro UI text.", M.get_textcolor_setting, M.set_textcolor_setting, false, "")
-	LAM:AddColorPicker(M.saved.SettingsWindow, "MacroPoetry_SlotHoverColor", "Macro Slot Hover Color", "This changes the hover color of the macro UI slot.", M.get_slothovercolor_setting, M.set_slothovercolor_setting, false, "")	
+	LAM:AddColorPicker(M.saved.SettingsWindow, "MacroPoetry_SlotHoverColor", "Macro Slot Hover Color", "This changes the hover color of the macro UI slot.", M.get_slothovercolor_setting, M.set_slothovercolor_setting, false, "")
+	LAM:AddSlider(M.saved.SettingsWindow, "MacroPoetry_MenuAlpha", "Open Menu Window Alpha", "This changes the alpha opacity of the addon when menus are open.", 1, 10, 1, M.get_alpha_setting, M.set_alpha_setting, false, "")
+end
+
+function M.get_alpha_setting() return M.saved.open_menu_alpha * 10 end
+function M.set_alpha_setting( n )
+	M.saved.open_menu_alpha = (n/10)
 end
 
 function M.get_maxmacros_setting() return M.saved.maximum_macro_count end
@@ -159,12 +166,14 @@ end
 
 function M.auto_hide( layer, active )
 	if ( active == 2 or active == 11 or active == 12 or active == 16 ) then
-		M.toggle_addon_visible(false)
+		MacroPoetry:SetAlpha( M.saved.open_menu_alpha )
+		MacroPoetry:SetDrawLayer(0)
 	end
 end
 
 function M.auto_unhide( layer, active )
 	if ( active == 2 or active == 11 or active == 12 or active == 16) then
-		M.toggle_addon_visible(true)
+		MacroPoetry:SetAlpha(1)
+		MacroPoetry:SetDrawLayer(1)
 	end
 end
