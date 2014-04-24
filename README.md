@@ -25,6 +25,9 @@ Beyond that, you do not need to activate or otherwise concern yourself with the 
     /macro
         Toggle Add-On visibility
 
+	/macro [number]
+		Execute the macro in a given slot number.
+
     /emotes
         List of all in-game performable emotes.
 
@@ -59,11 +62,24 @@ Beyond that, you do not need to activate or otherwise concern yourself with the 
 ###Inside Macro Commands
 *These are builtin commands, and will only work inside of macros.*
 
+	/loop
+		**See /repeat**
+
     /pause [seconds]
         Wait for this many seconds before executing the next command in the macro.
 
+	/pause [min],[max]
+		Wait for a random number of seconds between range min-max (inclusive.)
+
     /wait [seconds]
         **See /pause**
+
+    /wait [min],[max]
+        **See /pause**
+
+	/repeat
+		Start the macro over again from the begining. (Technically requeue for execution.)
+		*BE CAREFUL WITH THIS* -- /dump is your best friend here!
 
 ###Development:
 - For the development version: be sure to rename the cloned/extracted directory to "MacroPoetry," (i.e. *-master to MacroPoetry.)

@@ -10,4 +10,4 @@ if ( M == nil ) then M = {} end
 wm = WINDOW_MANAGER
 LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
 
-M.version = "1.0.2"
+M.version = "1.0.3"

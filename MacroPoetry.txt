@@ -1,6 +1,6 @@
 ## Title: |c77DAFFMacro|cFF77DAPoetry|r
 ## Author: Archpoet
-## Version: 1.0.2
+## Version: 1.0.3
 ## APIVersion: 100003
 
 ## SavedVariables: MacroPoetry_SavedVariables

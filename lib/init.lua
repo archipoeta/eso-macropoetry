@@ -41,9 +41,9 @@ function M.on_init( event, name )
 	if name ~= "MacroPoetry" then return end
 	EVENT_MANAGER:UnregisterForEvent(name, event)
 	M.init()
-	M.add_slash_commands()
 	M.create_settings_ui()
 	M.load_saved_vars()
+	M.add_slash_commands()
 
 	-- Event / Command Queue Processor
 	MacroPoetry:SetHandler("OnUpdate", function(self, timerun)
@@ -56,8 +56,14 @@ function M.on_init( event, name )
 
 					local first = M.saved.command_queue[1][num][1]
 					local cmd, args = first:match( "(%S+)%s*(.*)" )
-
 					if ( cmd == "/pause" or cmd == "/wait" ) then
+						-- random waiting if min,max
+						if ( string.find( args, "," ) ) then
+							local min, max = args:match("(%d+),(%d+)")
+							args = math.random( min, max )
+							M.saved.command_queue[1][num][1] = cmd .. " " .. args
+							d( tostring(args) .. " seconds")
+						end
 
 						if M.buffer_reached( 'sleep' .. num .. i, tonumber(args) ) then
 							table.remove( M.saved.command_queue[1][num], 1 )
@@ -65,9 +71,14 @@ function M.on_init( event, name )
 							-- go on to the next macro, since this one is paused.
 							table.remove( M.saved.command_queue, 1 )
 							table.insert( M.saved.command_queue, { [num] = commands } )
-							return
 						end
+						return
+					end
 
+					if ( cmd == "/loop" or cmd == "/repeat" ) then
+						table.remove( M.saved.command_queue, 1 )
+						M.perform_macro( num, M.saved.macros[num]["body"] )
+						return
 					end
 
 					M.execute_macro( { M.saved.command_queue[1][num][1] } )
