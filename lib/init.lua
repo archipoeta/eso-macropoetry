@@ -62,7 +62,6 @@ function M.on_init( event, name )
 							local min, max = args:match("(%d+),(%d+)")
 							args = math.random( min, max )
 							M.saved.command_queue[1][num][1] = cmd .. " " .. args
-							d( tostring(args) .. " seconds")
 						end
 
 						if M.buffer_reached( 'sleep' .. num .. i, tonumber(args) ) then
